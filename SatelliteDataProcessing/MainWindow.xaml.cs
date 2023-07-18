@@ -16,14 +16,28 @@ using Galileo;
 
 namespace SatelliteDataProcessing
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+  
     public partial class MainWindow : Window
     {
+        LinkedList<double> sensorA = new LinkedList<double>();
+        LinkedList<double> sensorB = new LinkedList<double>();
         public MainWindow()
         {
             InitializeComponent();
         }
+
+
+        // Methods
+
+        // Load Method
+
+        private void LoadData()
+        {
+            
+;
+        }
+
+
+        // Buttons
     }
 }
