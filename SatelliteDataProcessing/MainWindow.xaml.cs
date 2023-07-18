@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Galileo;
+using Galileo6;
 
 namespace SatelliteDataProcessing
 {
@@ -21,6 +22,7 @@ namespace SatelliteDataProcessing
     {
         LinkedList<double> sensorA = new LinkedList<double>();
         LinkedList<double> sensorB = new LinkedList<double>();
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -33,8 +35,7 @@ namespace SatelliteDataProcessing
 
         private void LoadData()
         {
-            
-;
+;          
         }
 
 
