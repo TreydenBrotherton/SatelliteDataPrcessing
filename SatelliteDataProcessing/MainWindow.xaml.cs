@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Galileo;
-using Galileo6;
 
 namespace SatelliteDataProcessing
 {
@@ -28,17 +27,24 @@ namespace SatelliteDataProcessing
             InitializeComponent();
         }
 
-
+        
         // Methods
 
         // Load Method
-
+        
         private void LoadData()
         {
-;          
+            
+;          ReadData readData = new ReadData();
+           
+           
+ 
         }
 
-
+        private void ShowSensorData()
+        {
+            
+        }
         // Buttons
     }
 }
