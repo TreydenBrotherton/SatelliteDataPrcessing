@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,13 +35,17 @@ namespace SatelliteDataProcessing
         
         private void LoadData()
         {
+            
             // anonymous type, gridview in listview
 ;          ReadData readData = new ReadData();
             int maxDataSize = 400;
 
+           
             for(int i = 0; i < maxDataSize; i++)
             {
                 sensorA.AddFirst(readData.SensorA(10, 50));
+                sensorB.AddFirst(readData.SensorB(10, 50));
+
             }
            
  
@@ -48,16 +53,21 @@ namespace SatelliteDataProcessing
 
         private void ShowSensorData()
         {
-            lvSensorData.Items.Clear();
-            
-            for(int i = 0;i < sensorA.Count;i++)
+          lvSensorData.Items.Clear();
+
+            var dataList = sensorA.Zip(sensorB, (a, b) => new { sensorA = a, sensorB = b }).ToList();
+
+            foreach(var data in dataList)
             {
-                
+                lvSensorData.Items.Add(data);
             }
         }
         private void DisplayListBoxData()
         {
-            
+            foreach(var item in sensorA)
+            {
+                lbData.Items.Add(item);
+            }
         }
 
         // Buttons
@@ -65,6 +75,7 @@ namespace SatelliteDataProcessing
         {
             LoadData();
             ShowSensorData();
+            DisplayListBoxData();
         }
     }
 }

@@ -11,11 +11,12 @@
         <ListView x:Name="lvSensorData" Margin="18,89,552,42">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="SensorA" Width="120" DisplayMemberBinding="{Binding Path =sensorA}"/>
-                    <GridViewColumn Header="SensorB" Width="120" DisplayMemberBinding="{Binding Path =sensorB}"/>
+                    <GridViewColumn Header="SensorA" Width="120" DisplayMemberBinding="{Binding Path=sensorA}"/>
+                    <GridViewColumn Header="SensorB" Width="120" DisplayMemberBinding="{Binding Path=sensorB}"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <ListBox x:Name="lbData" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="338,67,153,128"/>
 
     </Grid>
 </Window>
