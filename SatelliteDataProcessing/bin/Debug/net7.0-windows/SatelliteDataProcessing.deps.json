@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "SatelliteDataProcessing/1.0.0": {
+        "dependencies": {
+          "Galileo": "1.0.0.0"
+        },
+        "runtime": {
+          "SatelliteDataProcessing.dll": {}
+        }
+      },
+      "Galileo/1.0.0.0": {
+        "runtime": {
+          "Galileo.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SatelliteDataProcessing/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Galileo/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

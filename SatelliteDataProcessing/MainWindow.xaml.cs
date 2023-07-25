@@ -34,17 +34,37 @@ namespace SatelliteDataProcessing
         
         private void LoadData()
         {
-            
+            // anonymous type, gridview in listview
 ;          ReadData readData = new ReadData();
-           
+            int maxDataSize = 400;
+
+            for(int i = 0; i < maxDataSize; i++)
+            {
+                sensorA.AddFirst(readData.SensorA(10, 50));
+            }
            
  
         }
 
         private void ShowSensorData()
         {
+            lvSensorData.Items.Clear();
+            
+            for(int i = 0;i < sensorA.Count;i++)
+            {
+                
+            }
+        }
+        private void DisplayListBoxData()
+        {
             
         }
+
         // Buttons
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            LoadData();
+            ShowSensorData();
+        }
     }
 }

@@ -8,7 +8,8 @@
     "net7.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\30031981\\.nuget\\packages\\": {}
+    "C:\\Users\\30031981\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
@@ -19,8 +20,12 @@
       "packagesPath": "C:\\Users\\30031981\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\30031981\\Documents\\GitHub\\SatelliteDataProcessing\\SatelliteDataProcessing\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\30031981\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

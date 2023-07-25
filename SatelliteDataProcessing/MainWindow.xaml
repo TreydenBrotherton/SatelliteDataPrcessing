@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button x:Name="btnLoad" Content="Load Data" HorizontalAlignment="Left" Margin="27,64,0,0" VerticalAlignment="Top" Width="94" Click="btnLoad_Click"/>
+        <ListView x:Name="lvSensorData" Margin="18,89,552,42">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="SensorA" Width="120" DisplayMemberBinding="{Binding Path =sensorA}"/>
+                    <GridViewColumn Header="SensorB" Width="120" DisplayMemberBinding="{Binding Path =sensorB}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>
