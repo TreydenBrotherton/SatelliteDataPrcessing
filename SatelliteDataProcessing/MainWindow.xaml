@@ -3,10 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:SatelliteDataProcessing"
+        xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <wpfx:IntegerUpDown Name="sigmaUpDown" Value="10" Margin="18,31,712,385"/>
+        <wpfx:IntegerUpDown x:Name="muUpDown" Margin="98,31,632,385"/>
         <Button x:Name="btnLoad" Content="Load Data" HorizontalAlignment="Left" Margin="27,64,0,0" VerticalAlignment="Top" Width="94" Click="btnLoad_Click"/>
         <ListView x:Name="lvSensorData" Margin="18,89,552,42">
             <ListView.View>
@@ -16,7 +20,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListBox x:Name="lbData" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="338,67,153,128"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1186,326,0,0" VerticalAlignment="Top" Width="0"/>
+        
 
     </Grid>
 </Window>

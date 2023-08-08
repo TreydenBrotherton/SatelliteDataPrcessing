@@ -38,13 +38,14 @@ namespace SatelliteDataProcessing
             
             // anonymous type, gridview in listview
 ;          ReadData readData = new ReadData();
-            int maxDataSize = 400;
-
+           int maxDataSize = 400;
+            double sigma = (double)sigmaUpDown.Value;
+            double mu = (double)muUpDown.Value;
            
             for(int i = 0; i < maxDataSize; i++)
             {
-                sensorA.AddFirst(readData.SensorA(10, 50));
-                sensorB.AddFirst(readData.SensorB(10, 50));
+                sensorA.AddFirst(readData.SensorA(sigma, mu));
+                sensorB.AddFirst(readData.SensorB(sigma, mu));
 
             }
            
@@ -62,20 +63,14 @@ namespace SatelliteDataProcessing
                 lvSensorData.Items.Add(data);
             }
         }
-        private void DisplayListBoxData()
-        {
-            foreach(var item in sensorA)
-            {
-                lbData.Items.Add(item);
-            }
-        }
+       
 
         // Buttons
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
             LoadData();
             ShowSensorData();
-            DisplayListBoxData();
+            
         }
     }
 }
