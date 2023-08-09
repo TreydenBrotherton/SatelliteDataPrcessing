@@ -36,15 +36,18 @@ namespace SatelliteDataProcessing
         private void LoadData()
         {
             
-            
-;          ReadData readData = new ReadData();
-           int maxDataSize = 400;
-            
-           
+            sensorA.Clear();
+            sensorB.Clear();
+;           ReadData readData = new ReadData();
+            int maxDataSize = 400;
+
+            double sigma = (double)upDownSigma.Value;
+            double mu = (double)upDownMu.Value;
+
             for(int i = 0; i < maxDataSize; i++)
             {
-                sensorA.AddFirst(readData.SensorA(10, 50));
-                sensorB.AddFirst(readData.SensorB(10, 50));
+                sensorA.AddFirst(readData.SensorA(sigma, mu));
+                sensorB.AddFirst(readData.SensorB(sigma, mu));
 
             }
            
@@ -53,8 +56,8 @@ namespace SatelliteDataProcessing
 
         private void ShowSensorData()
         {
-          lvSensorData.Items.Clear();
-
+            lvSensorData.Items.Clear();
+            
             var dataList = sensorA.Zip(sensorB, (a, b) => new { sensorA = a, sensorB = b }).ToList();
 
             foreach(var data in dataList)
@@ -63,7 +66,20 @@ namespace SatelliteDataProcessing
             }
         }
        
+        private void NumberOfNodes(LinkedList<double> sensor)
+        {
+            int nodeAmount = sensor.Count();
+        }
 
+        private void DisplayListBoxData(LinkedList<double> sensor, ListBox listBoxName)
+        {
+
+            foreach(var data in sensor)
+            {
+                listBoxName.Items.Add(data);
+            }
+          
+        }
         // Buttons
        
 
@@ -71,6 +87,9 @@ namespace SatelliteDataProcessing
         {
             LoadData();
             ShowSensorData();
+            DisplayListBoxData(sensorA, lstboxSensorA);
+            DisplayListBoxData(sensorB, lstboxSensorB);
+            NumberOfNodes(sensorB);
         }
     }
 }
