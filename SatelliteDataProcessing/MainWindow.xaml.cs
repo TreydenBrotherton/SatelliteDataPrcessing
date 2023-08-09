@@ -66,9 +66,9 @@ namespace SatelliteDataProcessing
             }
         }
        
-        private void NumberOfNodes(LinkedList<double> sensor)
+        private int NumberOfNodes(LinkedList<double> sensor)
         {
-            int nodeAmount = sensor.Count();
+            return sensor.Count;
         }
 
         private void DisplayListBoxData(LinkedList<double> sensor, ListBox listBoxName)
@@ -80,6 +80,33 @@ namespace SatelliteDataProcessing
             }
           
         }
+
+        private bool SelectionSort(LinkedList<double> sensor)
+        {
+            // need to fix this 
+            int min = 0;
+            int max = NumberOfNodes(sensor);
+            for (int i = 0; min < max; max--)
+            {
+                min = i;
+                for (int j = i; j < max; max++)
+                {
+                    if (sensor.ElementAt(j) < sensor.ElementAt(min))
+                    {
+                        min = j;
+                    }
+                }
+
+                LinkedListNode<double> currentMin = sensor.Find(sensor.ElementAt(min));
+                LinkedListNode<double> currentI = sensor.Find(sensor.ElementAt(i));
+
+                var temp = currentMin.Value;
+                currentMin.Value = currentI.Value;
+                currentI.Value = temp;
+                
+            }
+            return true;
+        }
         // Buttons
        
 
@@ -90,6 +117,11 @@ namespace SatelliteDataProcessing
             DisplayListBoxData(sensorA, lstboxSensorA);
             DisplayListBoxData(sensorB, lstboxSensorB);
             NumberOfNodes(sensorB);
+        }
+
+        private void btnSensorASelectionSort_Click(object sender, RoutedEventArgs e)
+        {
+            SelectionSort(sensorA);
         }
     }
 }
