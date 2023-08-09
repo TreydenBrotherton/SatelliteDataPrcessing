@@ -65,11 +65,12 @@ namespace SatelliteDataProcessing
        
 
         // Buttons
-        private void btnLoad_Click(object sender, RoutedEventArgs e)
+       
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             LoadData();
             ShowSensorData();
-            
         }
     }
 }

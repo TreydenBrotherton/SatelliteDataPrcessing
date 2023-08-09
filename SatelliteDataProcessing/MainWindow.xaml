@@ -9,7 +9,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <Button x:Name="btnLoad" Content="Load Data" HorizontalAlignment="Left" Margin="27,64,0,0" VerticalAlignment="Top" Width="94" Click="btnLoad_Click"/>
+
+
+        <wpfx:IntegerUpDown Value="0" Margin="56,30,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="63"/>
+        <wpfx:IntegerUpDown Value="0" Margin="133,30,0,0" HorizontalAlignment="Left" Width="65" Height="24" VerticalAlignment="Top"/>
         <ListView x:Name="lvSensorData" Margin="18,89,552,42">
             <ListView.View>
                 <GridView>
@@ -19,7 +22,8 @@
             </ListView.View>
         </ListView>
         <Button Content="Button" HorizontalAlignment="Left" Margin="1186,326,0,0" VerticalAlignment="Top" Width="0"/>
-        <wpfx:IntegerUpDown Value="0" Width="61" Margin="27,24,0,385" HorizontalAlignment="Left"/>
+        <Button x:Name="btnLoadData" Content="Load Data" HorizontalAlignment="Left" Margin="92,64,0,0" VerticalAlignment="Top" Width="72" Click="Button_Click"/>
+
 
     </Grid>
 </Window>
