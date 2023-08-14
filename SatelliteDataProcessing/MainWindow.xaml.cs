@@ -111,8 +111,6 @@ namespace SatelliteDataProcessing
 
         private void InsertionSort(LinkedList<double> sensor, ListBox listBox)
         {
-            
-
             for (int i = 0; i < NumberOfNodes(sensor) - 1; i++)
             {
                 for (int j = i + 1; j > 0; j--)
