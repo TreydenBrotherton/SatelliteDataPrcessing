@@ -130,7 +130,49 @@ namespace SatelliteDataProcessing
             // Display the sorted list
             DisplayListBoxData(sensor, listBox);
         }
-        
+
+        private int BinarySearchIterative(LinkedList<double> sensor, double searchValue)
+        {
+            int minimum = 0;
+            int maximum = sensor.Count - 1;
+
+            while (minimum <= maximum)
+            {
+                int middle = minimum + (maximum - minimum) / 2;
+
+                var middleNode = GetNodeAt(sensor, middle);
+
+                if (searchValue == middleNode.Value)
+                {
+                    return middle + 1; // Index is 1-based
+                }
+                else if (searchValue < middleNode.Value)
+                {
+                    maximum = middle - 1;
+                }
+                else
+                {
+                    minimum = middle + 1;
+                }
+            }
+            return minimum;
+
+            LinkedListNode<double> GetNodeAt(LinkedList<double> sensor, int index)
+            {
+                if (index < 0 || index >= sensor.Count)
+                {
+                    throw new ArgumentOutOfRangeException("index out of range");
+                }
+
+                LinkedListNode<double> current = sensor.First;
+                for (int i = 0; i < index; i++)
+                {
+                    current = current.Next;
+
+                }
+                return current;
+            }
+        }
         // Buttons
        
 
@@ -150,6 +192,23 @@ namespace SatelliteDataProcessing
         private void btnSensorAInsertionSort_Click(object sender, RoutedEventArgs e)
         {
             InsertionSort(sensorA, lstboxSensorA);
+        }
+
+        private void btnSensorABinaryI_Click(object sender, RoutedEventArgs e)
+        {
+            SelectionSort(sensorA, lstboxSensorA);
+            double searchValue;
+            double.TryParse(txtBoxASearchTarget.Text, out searchValue);
+            int position = BinarySearchIterative(sensorA, searchValue);
+
+            if (position > 0 && position <= sensorA.Count)
+            {
+                MessageBox.Show($"Search value {searchValue}, Position was found {position}");
+            }    
+           
+
+            
+            
         }
     }
 }

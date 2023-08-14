@@ -23,7 +23,7 @@
         </ListView>
         <Button Content="Button" HorizontalAlignment="Left" Margin="1186,326,0,0" VerticalAlignment="Top" Width="0"/>
         <Button x:Name="btnLoadData" Content="Load Data" HorizontalAlignment="Left" Margin="92,64,0,0" VerticalAlignment="Top" Width="72" Click="Button_Click"/>
-        <Button x:Name="btnSensorABinaryI" Content="Search" HorizontalAlignment="Left" Margin="300,91,0,0" VerticalAlignment="Top" Width="58"/>
+        <Button x:Name="btnSensorABinaryI" Content="Search" HorizontalAlignment="Left" Margin="300,91,0,0" VerticalAlignment="Top" Width="58" Click="btnSensorABinaryI_Click"/>
         <ListBox x:Name="lstboxSensorA" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="400,89,0,42" HorizontalAlignment="Left" Width="109"/>
         <ListBox x:Name="lstboxSensorB" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="656,89,0,42" HorizontalAlignment="Left" Width="109"/>
         <TextBlock HorizontalAlignment="Left" Margin="400,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="125" FontSize="22" FontFamily="Britannic Bold"><Run FontWeight="Bold" Text="SENSOR A"/></TextBlock>
@@ -31,28 +31,30 @@
         <TextBlock HorizontalAlignment="Left" Margin="300,45,0,0" TextWrapping="Wrap" Text="Binary Search Iterative" VerticalAlignment="Top" Height="47" Width="75"/>
         <TextBlock HorizontalAlignment="Left" Margin="300,155,0,0" TextWrapping="Wrap" Text="Binary Search Recursive" VerticalAlignment="Top" Height="33" Width="75"/>
         <Button x:Name="btnSensorABinaryR" Content="Search" HorizontalAlignment="Left" Margin="300,193,0,0" VerticalAlignment="Top" Width="58"/>
-        <TextBox x:Name="txtBoxASearchTarget" HorizontalAlignment="Left" Margin="300,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53"/>
-        <TextBlock HorizontalAlignment="Left" Margin="300,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Search Target"/><LineBreak/><Run/></TextBlock>
-        <Button x:Name="btnSensorASelectionSort" Content="Sort" HorizontalAlignment="Left" Margin="300,331,0,0" VerticalAlignment="Top" Width="58" Click="btnSensorASelectionSort_Click"/>
-        <Button x:Name="btnSensorAInsertionSort" Content="Sort" HorizontalAlignment="Left" Margin="300,427,0,0" VerticalAlignment="Top" Width="58" Click="btnSensorAInsertionSort_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="300,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Selection Sort"/><LineBreak/><Run/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="300,387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Insertion Sort"/><LineBreak/><Run/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Margin="272,356,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="272,452,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBoxASearchTarget" HorizontalAlignment="Left" Margin="300,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53"/>
+        <TextBlock HorizontalAlignment="Left" Margin="300,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Search Target"/><LineBreak/><Run/></TextBlock>
+        <Button x:Name="btnSensorASelectionSort" Content="Sort" HorizontalAlignment="Left" Margin="300,377,0,0" VerticalAlignment="Top" Width="58" Click="btnSensorASelectionSort_Click"/>
+        <Button x:Name="btnSensorAInsertionSort" Content="Sort" HorizontalAlignment="Left" Margin="298,466,0,0" VerticalAlignment="Top" Width="58" Click="btnSensorAInsertionSort_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="300,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Selection Sort"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="300,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Insertion Sort"/><LineBreak/><Run/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Margin="272,402,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="272,491,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Margin="272,123,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="537,40,0,0" TextWrapping="Wrap" Text="Binary Search Iterative" VerticalAlignment="Top" Height="47" Width="75"/>
         <Button x:Name="btnSensorBBinaryI" Content="Search" HorizontalAlignment="Left" Margin="545,92,0,0" VerticalAlignment="Top" Width="58"/>
         <TextBox HorizontalAlignment="Left" Margin="514,123,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="536,155,0,0" TextWrapping="Wrap" Text="Binary Search Recursive" VerticalAlignment="Top" Height="33" Width="76"/>
         <Button x:Name="btnSensorBBinaryR" Content="Search" HorizontalAlignment="Left" Margin="545,193,0,0" VerticalAlignment="Top" Width="58"/>
-        <TextBlock HorizontalAlignment="Left" Margin="545,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Search Target"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="txtBoxBSearchTarget" HorizontalAlignment="Left" Margin="548,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53"/>
-        <TextBlock HorizontalAlignment="Left" Margin="543,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Selection Sort"/><LineBreak/><Run/></TextBlock>
-        <Button x:Name="btnSensorBSelectionSort" Content="Sort" HorizontalAlignment="Left" Margin="543,331,0,0" VerticalAlignment="Top" Width="58"/>
-        <TextBox HorizontalAlignment="Left" Margin="514,356,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="546,387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Insertion Sort"/><LineBreak/><Run/></TextBlock>
-        <Button x:Name="btnSensorBInsertionSort" Content="Sort" HorizontalAlignment="Left" Margin="543,427,0,0" VerticalAlignment="Top" Width="58"/>
-        <TextBox HorizontalAlignment="Left" Margin="514,452,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="546,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Search Target"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="txtBoxBSearchTarget" HorizontalAlignment="Left" Margin="548,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53"/>
+        <TextBlock HorizontalAlignment="Left" Margin="545,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Selection Sort"/><LineBreak/><Run/></TextBlock>
+        <Button x:Name="btnSensorBSelectionSort" Content="Sort" HorizontalAlignment="Left" Margin="543,377,0,0" VerticalAlignment="Top" Width="58"/>
+        <TextBox HorizontalAlignment="Left" Margin="512,402,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="543,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Insertion Sort"/><LineBreak/><Run/></TextBlock>
+        <Button x:Name="btnSensorBInsertionSort" Content="Sort" HorizontalAlignment="Left" Margin="543,466,0,0" VerticalAlignment="Top" Width="58"/>
+        <TextBox HorizontalAlignment="Left" Margin="514,491,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="272,221,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="512,221,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
 
     </Grid>
