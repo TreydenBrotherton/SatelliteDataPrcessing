@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,17 +36,21 @@ namespace SatelliteDataProcessing
         
         private void LoadData()
         {
-            
+            // Clears both sensors and list boxes
             sensorA.Clear();
             sensorB.Clear();
             lstboxSensorA.Items.Clear();
             lstboxSensorB.Items.Clear();
+
+            // intialzation
 ;           ReadData readData = new ReadData();
             int maxDataSize = 400;
 
+            // get value from the integer updown controls
             double sigma = (double)upDownSigma.Value;
             double mu = (double)upDownMu.Value;
 
+            // Adds data to both sensors
             for(int i = 0; i < maxDataSize; i++)
             {
                 sensorA.AddFirst(readData.SensorA(sigma, mu));
@@ -59,7 +64,7 @@ namespace SatelliteDataProcessing
         private void ShowSensorData()
         {
             lvSensorData.Items.Clear();
-            
+            // Splits data into its section of the listview
             var dataList = sensorA.Zip(sensorB, (a, b) => new { sensorA = a, sensorB = b }).ToList();
 
             foreach(var data in dataList)
@@ -68,11 +73,13 @@ namespace SatelliteDataProcessing
             }
         }
        
+        // Gets the number of nodes in the sensor
         private int NumberOfNodes(LinkedList<double> sensor)
         {
             return sensor.Count;
         }
 
+        // Displays list box data
         private void DisplayListBoxData(LinkedList<double> sensor, ListBox listBoxName)
         {
             listBoxName.Items.Clear();
@@ -83,6 +90,7 @@ namespace SatelliteDataProcessing
           
         }
 
+        // Selection Sort Algorithm 
         private void SelectionSort(LinkedList<double> sensor, ListBox listBox)
         {
 
@@ -109,6 +117,7 @@ namespace SatelliteDataProcessing
             DisplayListBoxData(sensor, listBox);
         }
 
+        // Insertion Sort Algorithm 
         private void InsertionSort(LinkedList<double> sensor, ListBox listBox)
         {
             for (int i = 0; i < NumberOfNodes(sensor) - 1; i++)
@@ -129,7 +138,8 @@ namespace SatelliteDataProcessing
             DisplayListBoxData(sensor, listBox);
         }
 
-        private int BinarySearchIterative(LinkedList<double> sensor, double searchValue)
+        // Binary Search Iterative Algorithm 
+        private int BinarySearchIterative(LinkedList<double> sensor, int searchValue)
         {
             int minimum = 0;
             int maximum = sensor.Count - 1;
@@ -171,6 +181,30 @@ namespace SatelliteDataProcessing
                 return current;
             }
         }
+
+
+        // Binary Search Recursive Algorithm 
+        private int BinarySearchRecursive(LinkedList<double> sensor, int searchValue, int minimum, int maximum)
+        {
+            if (minimum <= maximum - 1)
+            {
+                int middle = (minimum + maximum) / 2;
+
+                if (searchValue == sensor.ElementAt(middle))
+                {
+                    return middle;
+                }
+                else if (searchValue < sensor.ElementAt(middle))
+                {
+                    return BinarySearchRecursive(sensor, searchValue, minimum, middle - 1);
+                }
+                else
+                {
+                    return BinarySearchRecursive(sensor, searchValue, middle + 1, maximum);
+                }
+            }
+            return minimum;
+        }
         // Buttons
        
 
@@ -194,9 +228,9 @@ namespace SatelliteDataProcessing
 
         private void btnSensorABinaryI_Click(object sender, RoutedEventArgs e)
         {
-            SelectionSort(sensorA, lstboxSensorA);
-            double searchValue;
-            double.TryParse(txtBoxASearchTarget.Text, out searchValue);
+            
+            int searchValue;
+            int.TryParse(txtBoxASearchTarget.Text, out searchValue);
             int position = BinarySearchIterative(sensorA, searchValue);
 
             if (position > 0 && position <= sensorA.Count)
@@ -204,9 +238,18 @@ namespace SatelliteDataProcessing
                 MessageBox.Show($"Search value {searchValue}, Position was found {position}");
             }    
            
+        }
 
-            
-            
+        private void btnSensorABinaryR_Click(object sender, RoutedEventArgs e)
+        {
+
+            int searchValue;
+            int.TryParse(txtBoxASearchTarget.Text, out searchValue);
+            int minimum = 0;
+            int maximum = sensorA.Count - 1;
+            int result = BinarySearchRecursive(sensorA, searchValue, minimum, maximum);
+
+            MessageBox.Show(sensorA.ElementAt(result).ToString());
         }
     }
 }
