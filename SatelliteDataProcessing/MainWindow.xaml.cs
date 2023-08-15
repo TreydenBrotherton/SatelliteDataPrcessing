@@ -58,7 +58,6 @@ namespace SatelliteDataProcessing
 
             }
            
- 
         }
 
         private void ShowSensorData()
@@ -91,8 +90,17 @@ namespace SatelliteDataProcessing
         }
 
         // Selection Sort Algorithm 
-        private void SelectionSort(LinkedList<double> sensor, ListBox listBox)
+        private bool SelectionSort(LinkedList<double> sensor)
         {
+            if (sensor == null)
+            {
+                return false; // returns false if the sensor is invalid
+            }
+
+            if (NumberOfNodes(sensor) <= 1)
+            {
+                return false; // returns false if sorting is not needed
+            }
 
             for (int i = 0; i < NumberOfNodes(sensor) - 1; i++)
             {
@@ -113,13 +121,21 @@ namespace SatelliteDataProcessing
                 currentI.Value = temp;
             }
 
-            // Displays sorted list
-            DisplayListBoxData(sensor, listBox);
+            return true; // indicates that the sort was successful
         }
 
         // Insertion Sort Algorithm 
-        private void InsertionSort(LinkedList<double> sensor, ListBox listBox)
+        private bool InsertionSort(LinkedList<double> sensor)
         {
+            if (sensor == null)
+            {
+                return false; // returns false if the sensor is invalid
+            }
+
+            if (NumberOfNodes(sensor) <= 1)
+            {
+                return false; // returns false if sorting is not needed
+            }
             for (int i = 0; i < NumberOfNodes(sensor) - 1; i++)
             {
                 for (int j = i + 1; j > 0; j--)
@@ -134,8 +150,7 @@ namespace SatelliteDataProcessing
                     }
                 }
             }
-            // Display the sorted list
-            DisplayListBoxData(sensor, listBox);
+            return true; // indicates that the sort was successful
         }
 
         // Binary Search Iterative Algorithm 
@@ -205,6 +220,23 @@ namespace SatelliteDataProcessing
             }
             return minimum;
         }
+
+
+        private double TimeStopWatch(bool isStarted)
+        {
+            Stopwatch sw = Stopwatch.StartNew();
+            TimeSpan ts = sw.Elapsed;
+            double elapsedTime = sw.ElapsedTicks;
+            if (isStarted)
+            {
+                sw.Start();
+            }
+            else 
+            { 
+                sw.Stop();
+            }
+            return elapsedTime;
+        }
         // Buttons
        
 
@@ -218,38 +250,49 @@ namespace SatelliteDataProcessing
 
         private void btnSensorASelectionSort_Click(object sender, RoutedEventArgs e)
         {
-            SelectionSort(sensorA, lstboxSensorA);
+            SelectionSort(sensorA);
+            DisplayListBoxData(sensorA, lstboxSensorA);
         }
 
         private void btnSensorAInsertionSort_Click(object sender, RoutedEventArgs e)
         {
-            InsertionSort(sensorA, lstboxSensorA);
+            InsertionSort(sensorA);
+            DisplayListBoxData(sensorA, lstboxSensorA);
         }
 
         private void btnSensorABinaryI_Click(object sender, RoutedEventArgs e)
         {
             
+            TimeStopWatch(true); // starts stopwatch
+
             int searchValue;
             int.TryParse(txtBoxASearchTarget.Text, out searchValue);
             int position = BinarySearchIterative(sensorA, searchValue);
 
             if (position > 0 && position <= sensorA.Count)
             {
-                MessageBox.Show($"Search value {searchValue}, Position was found {position}");
-            }    
-           
+                
+                TimeStopWatch(false); // stops the stopwatch
+              //  MessageBox.Show($"Search value {searchValue}, Position was found {position}");
+            }
+
+           stopWatchSensorAIterative.Text = $"{TimeStopWatch(false)} ticks"; // displays elapsed time from stopwatch
         }
 
         private void btnSensorABinaryR_Click(object sender, RoutedEventArgs e)
         {
+            TimeStopWatch(true); // starts stop watch
 
             int searchValue;
             int.TryParse(txtBoxASearchTarget.Text, out searchValue);
             int minimum = 0;
             int maximum = sensorA.Count - 1;
+            
             int result = BinarySearchRecursive(sensorA, searchValue, minimum, maximum);
+            TimeStopWatch(false);
 
-            MessageBox.Show(sensorA.ElementAt(result).ToString());
+           // MessageBox.Show(sensorA.ElementAt(result).ToString());
+            stopWatchSensorARecursive.Text = $"{TimeStopWatch(false)} ticks"; // stops the stopwatch
         }
     }
 }
