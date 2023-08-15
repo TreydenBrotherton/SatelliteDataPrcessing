@@ -237,15 +237,34 @@ namespace SatelliteDataProcessing
             }
             return elapsedTime;
         }
+
+        private void HighlightItemsInListBox(LinkedList<double> sensor, ListBox listBox, int selectedIndex)
+        {
+            listBox.Items.Clear();
+
+            for (int i = 0; i < sensor.Count; i++)
+            {
+                
+                ListBoxItem item = new ListBoxItem();
+                item.Content = sensor.ElementAt(i);
+
+                if (i == selectedIndex || i == selectedIndex - 1 || i == selectedIndex + 1)
+                {
+                    item.Background = Brushes.LightBlue; // Highlight the items
+                }
+
+                listBox.Items.Add(item);
+            }
+            listBox.ScrollIntoView(listBox.Items[selectedIndex]);
+        }
         // Buttons
-       
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             LoadData();
             ShowSensorData();
-            DisplayListBoxData(sensorA, lstboxSensorA);
-            DisplayListBoxData(sensorB, lstboxSensorB);
+            
         }
 
         private void btnSensorASelectionSort_Click(object sender, RoutedEventArgs e)
@@ -262,7 +281,6 @@ namespace SatelliteDataProcessing
 
         private void btnSensorABinaryI_Click(object sender, RoutedEventArgs e)
         {
-            
             TimeStopWatch(true); // starts stopwatch
 
             int searchValue;
@@ -270,12 +288,11 @@ namespace SatelliteDataProcessing
             int position = BinarySearchIterative(sensorA, searchValue);
 
             if (position > 0 && position <= sensorA.Count)
-            {
-                
+            { 
                 TimeStopWatch(false); // stops the stopwatch
-              //  MessageBox.Show($"Search value {searchValue}, Position was found {position}");
+                HighlightItemsInListBox(sensorA, lstboxSensorA, position);
             }
-
+            
            stopWatchSensorAIterative.Text = $"{TimeStopWatch(false)} ticks"; // displays elapsed time from stopwatch
         }
 
@@ -289,10 +306,11 @@ namespace SatelliteDataProcessing
             int maximum = sensorA.Count - 1;
             
             int result = BinarySearchRecursive(sensorA, searchValue, minimum, maximum);
-            TimeStopWatch(false);
+            HighlightItemsInListBox(sensorA, lstboxSensorA, result);
 
-           // MessageBox.Show(sensorA.ElementAt(result).ToString());
-            stopWatchSensorARecursive.Text = $"{TimeStopWatch(false)} ticks"; // stops the stopwatch
+            TimeStopWatch(false); // stops the stopwatch
+           
+            stopWatchSensorARecursive.Text = $"{TimeStopWatch(false)} ticks"; // displays the ticks for the stopwatch
         }
     }
 }
