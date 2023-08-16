@@ -272,14 +272,29 @@ namespace SatelliteDataProcessing
 
         private void btnSensorASelectionSort_Click(object sender, RoutedEventArgs e)
         {
+            Stopwatch sw = new Stopwatch(); // creates stopwatch instance
+            sw.Start(); // starts the stop watch
+
             SelectionSort(sensorA);
+
+            sw.Stop(); // stops the stopwatch
+            stopWatchSensorASelection.Text = $"{sw.ElapsedMilliseconds} milliseconds"; // displays stop watch elapsed time in milliseconds
+
             isSorted(sensorA);
             DisplayListBoxData(sensorA, lstboxSensorA);
+            
         }
 
         private void btnSensorAInsertionSort_Click(object sender, RoutedEventArgs e)
         {
+            Stopwatch sw = new Stopwatch(); // creates stopwatch instance
+            sw.Start(); // starts the stop watch
+
             InsertionSort(sensorA);
+
+            sw.Stop(); // stops the stopwatch
+            stopWatchSensorAInsertion.Text = $"{sw.ElapsedMilliseconds} milliseconds"; // displays stop watch elapsed time in milliseconds
+
             isSorted(sensorA);
             DisplayListBoxData(sensorA, lstboxSensorA);
         }

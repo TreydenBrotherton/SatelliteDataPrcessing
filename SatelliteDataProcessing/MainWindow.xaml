@@ -37,8 +37,8 @@
         <Button x:Name="btnSensorAInsertionSort" Content="Sort" HorizontalAlignment="Left" Margin="298,466,0,0" VerticalAlignment="Top" Width="58" Click="btnSensorAInsertionSort_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="300,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Selection Sort"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="300,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Insertion Sort"/><LineBreak/><Run/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Margin="272,402,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox HorizontalAlignment="Left" Margin="272,491,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="stopWatchSensorASelection" HorizontalAlignment="Left" Margin="272,402,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="stopWatchSensorAInsertion" HorizontalAlignment="Left" Margin="272,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <TextBox x:Name="stopWatchSensorAIterative" HorizontalAlignment="Left" Margin="272,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <TextBlock HorizontalAlignment="Left" Margin="537,40,0,0" TextWrapping="Wrap" Text="Binary Search Iterative" VerticalAlignment="Top" Height="47" Width="75"/>
         <Button x:Name="btnSensorBBinaryI" Content="Search" HorizontalAlignment="Left" Margin="545,92,0,0" VerticalAlignment="Top" Width="58"/>
