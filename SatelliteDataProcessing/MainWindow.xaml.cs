@@ -159,43 +159,35 @@ namespace SatelliteDataProcessing
             int minimum = 0;
             int maximum = sensor.Count - 1;
 
-            while (minimum <= maximum)
+            // check if list is sorted
+            if (isSorted(sensor) == false)
             {
-                int middle = minimum + (maximum - minimum) / 2;
-
-                var middleNode = GetNodeAt(sensor, middle);
-
-                if (searchValue == middleNode.Value)
-                {
-                    return middle + 1; // Index is 1-based
-                }
-                else if (searchValue < middleNode.Value)
-                {
-                    maximum = middle - 1;
-                }
-                else
-                {
-                    minimum = middle + 1;
-                }
+                MessageBox.Show("Lists are not sorted");
+                return -1;
             }
-            return minimum;
-
-            LinkedListNode<double> GetNodeAt(LinkedList<double> sensor, int index)
+            else
             {
-                if (index < 0 || index >= sensor.Count)
+                // performs search
+                while (minimum <= maximum - 1)
                 {
-                    throw new ArgumentOutOfRangeException("index out of range");
+                    int middle = (minimum + maximum) / 2;
+                    if (searchValue == sensor.ElementAt(middle))
+                    {
+                        return ++middle;
+                    }
+                    else if (searchValue < sensor.ElementAt(middle))
+                    {
+                        maximum = middle - 1;
+                    }
+                    else
+                    {
+                        minimum = middle + 1;
+                    }
                 }
-
-                LinkedListNode<double> current = sensor.First;
-                for (int i = 0; i < index; i++)
-                {
-                    current = current.Next;
-
-                }
-                return current;
+                return minimum;
             }
         }
+
 
 
         // Binary Search Recursive Algorithm 
@@ -220,8 +212,7 @@ namespace SatelliteDataProcessing
             }
             return minimum;
         }
-
-
+        // Stop watch method
         private double TimeStopWatch(bool isStarted)
         {
             Stopwatch sw = Stopwatch.StartNew();
@@ -238,6 +229,7 @@ namespace SatelliteDataProcessing
             return elapsedTime;
         }
 
+        // Highlights items for searches
         private void HighlightItemsInListBox(LinkedList<double> sensor, ListBox listBox, int selectedIndex)
         {
             listBox.Items.Clear();
@@ -257,9 +249,27 @@ namespace SatelliteDataProcessing
             }
             listBox.ScrollIntoView(listBox.Items[selectedIndex]);
         }
+
+        private bool isSorted(LinkedList<double> sensor)
+        {
+            if (sensor.Count < 2)
+            {
+                return true;
+            }
+
+            double previousValue = sensor.First.Value;
+            foreach(double value in sensor)
+            {
+                if (value < previousValue)
+                {
+                    return false;
+                }
+                previousValue = value;
+            }
+            return true;
+        }
+
         // Buttons
-
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             LoadData();
@@ -281,19 +291,19 @@ namespace SatelliteDataProcessing
 
         private void btnSensorABinaryI_Click(object sender, RoutedEventArgs e)
         {
-            TimeStopWatch(true); // starts stopwatch
+           
+                TimeStopWatch(true); // starts stopwatch
 
-            int searchValue;
-            int.TryParse(txtBoxASearchTarget.Text, out searchValue);
-            int position = BinarySearchIterative(sensorA, searchValue);
+                int searchValue;
+                int.TryParse(txtBoxASearchTarget.Text, out searchValue);
+                int position = BinarySearchIterative(sensorA, searchValue);
 
-            if (position > 0 && position <= sensorA.Count)
-            { 
-                TimeStopWatch(false); // stops the stopwatch
-                HighlightItemsInListBox(sensorA, lstboxSensorA, position);
-            }
-            
-           stopWatchSensorAIterative.Text = $"{TimeStopWatch(false)} ticks"; // displays elapsed time from stopwatch
+                if (position > 0 && position <= sensorA.Count)
+                {
+                    TimeStopWatch(false); // stops the stopwatch
+                    HighlightItemsInListBox(sensorA, lstboxSensorA, position);
+                }
+                stopWatchSensorAIterative.Text = $"{TimeStopWatch(false)} ticks"; // displays elapsed time from stopwatch
         }
 
         private void btnSensorABinaryR_Click(object sender, RoutedEventArgs e)
