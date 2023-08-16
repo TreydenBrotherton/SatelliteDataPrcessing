@@ -266,7 +266,6 @@ namespace SatelliteDataProcessing
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-
         // Clear all text boxes Method
         private void ClearTextBoxes()
         {
@@ -444,10 +443,6 @@ namespace SatelliteDataProcessing
 
         #endregion
 
-        private void txtBoxBSearchTarget_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-
-        }
     }
 }
 #endregion
