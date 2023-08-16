@@ -269,7 +269,8 @@ namespace SatelliteDataProcessing
             ShowSensorData();
             
         }
-
+        // Sensor A Sorts
+        #region
         private void btnSensorASelectionSort_Click(object sender, RoutedEventArgs e)
         {
             Stopwatch sw = new Stopwatch(); // creates stopwatch instance
@@ -298,7 +299,41 @@ namespace SatelliteDataProcessing
             isSorted(sensorA);
             DisplayListBoxData(sensorA, lstboxSensorA);
         }
+        #endregion
 
+        // Sensor B Sorts
+        #region
+        private void btnSensorBSelectionSort_Click(object sender, RoutedEventArgs e)
+        {
+            Stopwatch sw = new Stopwatch(); // creates stopwatch instance
+            sw.Start(); // starts the stop watch
+
+            SelectionSort(sensorB);
+
+            sw.Stop(); // stops the stopwatch
+            stopWatchSensorBSelection.Text = $"{sw.ElapsedMilliseconds} milliseconds"; // displays stop watch elapsed time in milliseconds
+
+            isSorted(sensorB);
+            DisplayListBoxData(sensorB, lstboxSensorB);
+        }
+
+        private void btnSensorBInsertionSort_Click(object sender, RoutedEventArgs e)
+        {
+            Stopwatch sw = new Stopwatch(); // creates stopwatch instance
+            sw.Start(); // starts the stop watch
+
+            InsertionSort(sensorB);
+
+            sw.Stop(); // stops the stopwatch
+            stopWatchSensorBInsertion.Text = $"{sw.ElapsedMilliseconds} milliseconds"; // displays stop watch elapsed time in milliseconds
+
+            isSorted(sensorB);
+            DisplayListBoxData(sensorB, lstboxSensorB);
+        }
+        #endregion
+
+        // Sensor A Searches
+        #region
         private void btnSensorABinaryI_Click(object sender, RoutedEventArgs e)
         {
            
@@ -339,9 +374,52 @@ namespace SatelliteDataProcessing
             {
                 sw.Stop();
             }
-            
-           
         }
+        #endregion
+
+        // Sensor B Searches
+        #region
+        private void btnSensorBBinaryI_Click(object sender, RoutedEventArgs e)
+        {
+            Stopwatch sw = new Stopwatch(); // makes stopwatch instance
+            sw.Start(); // starts stopwatch
+
+            int searchValue;
+            int.TryParse(txtBoxBSearchTarget.Text, out searchValue);
+            int position = BinarySearchIterative(sensorB, searchValue);
+
+            if (position > 0 && position <= sensorB.Count)
+            {
+                sw.Stop(); // stops the stopwatch
+                HighlightItemsInListBox(sensorB, lstboxSensorB, position);
+                stopWatchSensorBIterative.Text = $"{sw.ElapsedTicks} ticks"; // displays elapsed time from stopwatch in ticks
+            }
+        }
+        private void btnSensorBBinaryR_Click(object sender, RoutedEventArgs e)
+        {
+            Stopwatch sw = new Stopwatch(); // makes stopwatch instance
+            sw.Start(); // starts stopwatch
+
+            int searchValue;
+            int.TryParse(txtBoxBSearchTarget.Text, out searchValue);
+            int minimum = 0;
+            int maximum = sensorB.Count - 1;
+
+            int result = BinarySearchRecursive(sensorB, searchValue, minimum, maximum);
+            if (result > 0 && result <= sensorB.Count)
+            {
+                sw.Stop(); // stops the stopwatch
+                HighlightItemsInListBox(sensorB, lstboxSensorB, result);
+                stopWatchSensorBRecursive.Text = $"{sw.ElapsedTicks} ticks"; // displays elapsed time from stopwatch in ticks
+            }
+            else
+            {
+                sw.Stop();
+            }
+        }
+        #endregion
+
+
     }
 }
 #endregion
