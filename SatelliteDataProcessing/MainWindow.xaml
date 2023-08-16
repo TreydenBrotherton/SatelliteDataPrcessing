@@ -11,8 +11,8 @@
 
 
 
-        <wpfx:IntegerUpDown x:Name="upDownSigma" Value="0" Margin="56,30,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="63"/>
-        <wpfx:IntegerUpDown x:Name="upDownMu" Value="0" Margin="133,30,0,0" HorizontalAlignment="Left" Width="65" Height="24" VerticalAlignment="Top"/>
+        <wpfx:IntegerUpDown x:Name="upDownSigma" Value="10" Margin="56,30,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="63" Minimum="10" Maximum="20" DefaultValue="10"/>
+        <wpfx:IntegerUpDown x:Name="upDownMu" Value="50" Margin="133,30,0,0" HorizontalAlignment="Left" Width="65" Height="24" VerticalAlignment="Top" Minimum="35" Maximum="75" DefaultValue="50"/>
         <ListView x:Name="lvSensorData" Margin="26,89,0,42" HorizontalAlignment="Left" Width="241">
             <ListView.View>
                 <GridView>
@@ -31,7 +31,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="300,45,0,0" TextWrapping="Wrap" Text="Binary Search Iterative" VerticalAlignment="Top" Height="47" Width="75"/>
         <TextBlock HorizontalAlignment="Left" Margin="300,155,0,0" TextWrapping="Wrap" Text="Binary Search Recursive" VerticalAlignment="Top" Height="33" Width="75"/>
         <Button x:Name="btnSensorABinaryR" Content="Search" HorizontalAlignment="Left" Margin="300,193,0,0" VerticalAlignment="Top" Width="58" Click="btnSensorABinaryR_Click"/>
-        <TextBox x:Name="txtBoxASearchTarget" HorizontalAlignment="Left" Margin="300,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53"/>
+        <TextBox x:Name="txtBoxASearchTarget" PreviewTextInput="PreviewTextInput" HorizontalAlignment="Left" Margin="300,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53"/>
         <TextBlock HorizontalAlignment="Left" Margin="300,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Search Target"/><LineBreak/><Run/></TextBlock>
         <Button x:Name="btnSensorASelectionSort" Content="Sort" HorizontalAlignment="Left" Margin="300,377,0,0" VerticalAlignment="Top" Width="58" Click="btnSensorASelectionSort_Click"/>
         <Button x:Name="btnSensorAInsertionSort" Content="Sort" HorizontalAlignment="Left" Margin="298,466,0,0" VerticalAlignment="Top" Width="58" Click="btnSensorAInsertionSort_Click"/>
@@ -46,7 +46,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="536,155,0,0" TextWrapping="Wrap" Text="Binary Search Recursive" VerticalAlignment="Top" Height="33" Width="76"/>
         <Button x:Name="btnSensorBBinaryR" Content="Search" HorizontalAlignment="Left" Margin="545,193,0,0" VerticalAlignment="Top" Width="58" Click="btnSensorBBinaryR_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="546,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Search Target"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="txtBoxBSearchTarget" HorizontalAlignment="Left" Margin="548,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53"/>
+        <TextBox x:Name="txtBoxBSearchTarget" PreviewTextInput="PreviewTextInput" HorizontalAlignment="Left" Margin="548,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53"/>
         <TextBlock HorizontalAlignment="Left" Margin="545,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="58"><Run Text="Selection Sort"/><LineBreak/><Run/></TextBlock>
         <Button x:Name="btnSensorBSelectionSort" Content="Sort" HorizontalAlignment="Left" Margin="543,377,0,0" VerticalAlignment="Top" Width="58" Click="btnSensorBSelectionSort_Click"/>
         <TextBox x:Name="stopWatchSensorBSelection" HorizontalAlignment="Left" Margin="512,402,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

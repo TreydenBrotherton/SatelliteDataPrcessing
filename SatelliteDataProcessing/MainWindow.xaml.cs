@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -259,12 +260,35 @@ namespace SatelliteDataProcessing
             }
             return true;
         }
+        // Search Textbox limiter - limits the text to only numeric values for the search target
+        private new void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        // Clear all text boxes Method
+        private void ClearTextBoxes()
+        {
+            stopWatchSensorAIterative.Clear();
+            stopWatchSensorARecursive.Clear();
+            txtBoxASearchTarget.Clear();
+            stopWatchSensorASelection.Clear();
+            stopWatchSensorAInsertion.Clear();
+
+            stopWatchSensorBIterative.Clear();
+            stopWatchSensorBRecursive.Clear();
+            txtBoxBSearchTarget.Clear();
+            stopWatchSensorBSelection.Clear();
+            stopWatchSensorBInsertion.Clear();
+        }
         #endregion
 
         // Buttons
         #region
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ClearTextBoxes();
             LoadData();
             ShowSensorData();
             
@@ -417,9 +441,13 @@ namespace SatelliteDataProcessing
                 sw.Stop();
             }
         }
+
         #endregion
 
+        private void txtBoxBSearchTarget_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
 
+        }
     }
 }
 #endregion
