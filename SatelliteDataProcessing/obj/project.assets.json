@@ -292,24 +292,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Treyd\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\30031981\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SatelliteDataProcessing\\SatelliteDataProcessing\\SatelliteDataProcessing.csproj",
+      "projectUniqueName": "C:\\Users\\30031981\\Documents\\GitHub\\SatelliteDataProcessing\\SatelliteDataProcessing\\SatelliteDataProcessing.csproj",
       "projectName": "SatelliteDataProcessing",
-      "projectPath": "D:\\SatelliteDataProcessing\\SatelliteDataProcessing\\SatelliteDataProcessing.csproj",
-      "packagesPath": "C:\\Users\\Treyd\\.nuget\\packages\\",
-      "outputPath": "D:\\SatelliteDataProcessing\\SatelliteDataProcessing\\obj\\",
+      "projectPath": "C:\\Users\\30031981\\Documents\\GitHub\\SatelliteDataProcessing\\SatelliteDataProcessing\\SatelliteDataProcessing.csproj",
+      "packagesPath": "C:\\Users\\30031981\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\30031981\\Documents\\GitHub\\SatelliteDataProcessing\\SatelliteDataProcessing\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Treyd\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\30031981\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -363,7 +358,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }
