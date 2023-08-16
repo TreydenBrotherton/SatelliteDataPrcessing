@@ -29,11 +29,11 @@ namespace SatelliteDataProcessing
             InitializeComponent();
         }
 
-        
+
         // Methods
+        #region
 
         // Load Method
-        
         private void LoadData()
         {
             // Clears both sensors and list boxes
@@ -57,9 +57,9 @@ namespace SatelliteDataProcessing
                 sensorB.AddFirst(readData.SensorB(sigma, mu));
 
             }
-           
         }
 
+        // ShowSensorData Method - splits each linkedList into a list view with headers
         private void ShowSensorData()
         {
             lvSensorData.Items.Clear();
@@ -71,14 +71,14 @@ namespace SatelliteDataProcessing
                 lvSensorData.Items.Add(data);
             }
         }
-       
-        // Gets the number of nodes in the sensor
+
+        // Number of Nodes Method - gets number of elements in a sensor
         private int NumberOfNodes(LinkedList<double> sensor)
         {
             return sensor.Count;
         }
 
-        // Displays list box data
+        // DisplayListBoxData Method - Displays the sensor data into their listboxes
         private void DisplayListBoxData(LinkedList<double> sensor, ListBox listBoxName)
         {
             listBoxName.Items.Clear();
@@ -89,7 +89,7 @@ namespace SatelliteDataProcessing
           
         }
 
-        // Selection Sort Algorithm 
+        // SelectionSort Method - Does a selection sort on a sensor
         private bool SelectionSort(LinkedList<double> sensor)
         {
             if (sensor == null)
@@ -124,7 +124,7 @@ namespace SatelliteDataProcessing
             return true; // indicates that the sort was successful
         }
 
-        // Insertion Sort Algorithm 
+        // InsertionSort Method - Does an Insertion Sort on a sensor
         private bool InsertionSort(LinkedList<double> sensor)
         {
             if (sensor == null)
@@ -153,7 +153,7 @@ namespace SatelliteDataProcessing
             return true; // indicates that the sort was successful
         }
 
-        // Binary Search Iterative Algorithm 
+        // BinarySearchIterative Method - Does an Iterative binary search on a sensor
         private int BinarySearchIterative(LinkedList<double> sensor, int searchValue)
         {
             int minimum = 0;
@@ -188,9 +188,7 @@ namespace SatelliteDataProcessing
             }
         }
 
-
-
-        // Binary Search Recursive Algorithm 
+        // BinarySearchRecursive Method - Does a recursive binary search on a sensor
         private int BinarySearchRecursive(LinkedList<double> sensor, int searchValue, int minimum, int maximum)
         {
             if (minimum <= maximum - 1)
@@ -212,7 +210,7 @@ namespace SatelliteDataProcessing
             }
             return minimum;
         }
-        // Stop watch method
+        // TimeStopWatch Method - Begins and stops a StopWatch
         private double TimeStopWatch(bool isStarted)
         {
             Stopwatch sw = Stopwatch.StartNew();
@@ -229,7 +227,7 @@ namespace SatelliteDataProcessing
             return elapsedTime;
         }
 
-        // Highlights items for searches
+        // HighlightItemsInListBox Method - Highlights the search target for the searches and highlights 1 item above and below the target
         private void HighlightItemsInListBox(LinkedList<double> sensor, ListBox listBox, int selectedIndex)
         {
             listBox.Items.Clear();
@@ -250,13 +248,13 @@ namespace SatelliteDataProcessing
             listBox.ScrollIntoView(listBox.Items[selectedIndex]);
         }
 
+        // IsSorted Method - Checks if the sensor list is sorted
         private bool isSorted(LinkedList<double> sensor)
         {
             if (sensor.Count < 2)
             {
                 return true;
             }
-
             double previousValue = sensor.First.Value;
             foreach(double value in sensor)
             {
@@ -268,8 +266,10 @@ namespace SatelliteDataProcessing
             }
             return true;
         }
+        #endregion
 
         // Buttons
+        #region
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             LoadData();
@@ -292,18 +292,18 @@ namespace SatelliteDataProcessing
         private void btnSensorABinaryI_Click(object sender, RoutedEventArgs e)
         {
            
-                TimeStopWatch(true); // starts stopwatch
+            TimeStopWatch(true); // starts stopwatch
 
-                int searchValue;
-                int.TryParse(txtBoxASearchTarget.Text, out searchValue);
-                int position = BinarySearchIterative(sensorA, searchValue);
+            int searchValue;
+            int.TryParse(txtBoxASearchTarget.Text, out searchValue);
+            int position = BinarySearchIterative(sensorA, searchValue);
 
-                if (position > 0 && position <= sensorA.Count)
-                {
-                    TimeStopWatch(false); // stops the stopwatch
-                    HighlightItemsInListBox(sensorA, lstboxSensorA, position);
-                }
-                stopWatchSensorAIterative.Text = $"{TimeStopWatch(false)} ticks"; // displays elapsed time from stopwatch
+            if (position > 0 && position <= sensorA.Count)
+            {
+                TimeStopWatch(false); // stops the stopwatch
+                HighlightItemsInListBox(sensorA, lstboxSensorA, position);
+            }
+            stopWatchSensorAIterative.Text = $"{TimeStopWatch(false)} ticks"; // displays elapsed time from stopwatch
         }
 
         private void btnSensorABinaryR_Click(object sender, RoutedEventArgs e)
@@ -324,3 +324,4 @@ namespace SatelliteDataProcessing
         }
     }
 }
+#endregion
