@@ -55,6 +55,8 @@
         <TextBox x:Name="stopWatchSensorBInsertion" HorizontalAlignment="Left" Margin="514,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="stopWatchSensorARecursive" HorizontalAlignment="Left" Margin="272,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <TextBox x:Name="stopWatchSensorBRecursive" HorizontalAlignment="Left" Margin="512,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="53" FontFamily="Britannic Bold" Text="Sigma"/>
+        <TextBlock HorizontalAlignment="Left" Margin="139,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="53" FontFamily="Britannic Bold" Text="Mu"/>
 
 
     </Grid>
