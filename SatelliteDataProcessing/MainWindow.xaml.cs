@@ -54,8 +54,8 @@ namespace SatelliteDataProcessing
             // Adds data to both sensors
             for(int i = 0; i < maxDataSize; i++)
             {
-                sensorA.AddFirst(readData.SensorA(sigma, mu));
-                sensorB.AddFirst(readData.SensorB(sigma, mu));
+                sensorA.AddFirst(readData.SensorA(mu, sigma));
+                sensorB.AddFirst(readData.SensorB(mu, sigma));
 
             }
         }
@@ -232,7 +232,7 @@ namespace SatelliteDataProcessing
                 ListBoxItem item = new ListBoxItem();
                 item.Content = sensor.ElementAt(i);
 
-                if (i == selectedIndex || i == selectedIndex - 1 || i == selectedIndex + 1)
+                if (i == selectedIndex - 2 || i == selectedIndex - 1 || i == selectedIndex || i == selectedIndex + 1 || i == selectedIndex + 2)
                 {
                     item.Background = Brushes.LightBlue; // Highlight the items
                 }

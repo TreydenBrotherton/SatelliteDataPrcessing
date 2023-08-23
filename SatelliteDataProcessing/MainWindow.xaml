@@ -11,8 +11,8 @@
 
 
 
-        <wpfx:IntegerUpDown x:Name="upDownSigma" Value="10" Margin="56,30,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="63" Minimum="10" Maximum="20" DefaultValue="10"/>
-        <wpfx:IntegerUpDown x:Name="upDownMu" Value="50" Margin="133,30,0,0" HorizontalAlignment="Left" Width="65" Height="24" VerticalAlignment="Top" Minimum="35" Maximum="75" DefaultValue="50"/>
+        <wpfx:IntegerUpDown x:Name="upDownSigma" Value="10" Margin="134,30,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="63" Minimum="10" Maximum="20" DefaultValue="10"/>
+        <wpfx:IntegerUpDown x:Name="upDownMu" Value="50" Margin="56,30,0,0" HorizontalAlignment="Left" Width="65" Height="24" VerticalAlignment="Top" Minimum="35" Maximum="75" DefaultValue="50"/>
         <ListView x:Name="lvSensorData" Margin="26,89,0,42" HorizontalAlignment="Left" Width="241">
             <ListView.View>
                 <GridView>
@@ -55,8 +55,8 @@
         <TextBox x:Name="stopWatchSensorBInsertion" HorizontalAlignment="Left" Margin="514,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="stopWatchSensorARecursive" HorizontalAlignment="Left" Margin="272,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <TextBox x:Name="stopWatchSensorBRecursive" HorizontalAlignment="Left" Margin="512,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="53" FontFamily="Britannic Bold" Text="Sigma"/>
-        <TextBlock HorizontalAlignment="Left" Margin="139,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="53" FontFamily="Britannic Bold" Text="Mu"/>
+        <TextBlock HorizontalAlignment="Left" Margin="134,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="52" FontFamily="Britannic Bold" Text="Sigma"/>
+        <TextBlock HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="53" FontFamily="Britannic Bold" Text="Mu"/>
 
 
     </Grid>
